@@ -1,6 +1,7 @@
-import {Component, signal} from '@angular/core';
+import {Component} from '@angular/core';
 import { PersonService } from './person.service';
-import {NgForOf, NgIf} from '@angular/common';
+import {NgForOf} from '@angular/common';
+import {Person} from '../model/person';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ import {NgForOf, NgIf} from '@angular/common';
   styleUrl: './app.css'
 })
 export class App {
-  persons: any[] = [];
+  persons: Person[] = [];
 
   constructor(private personService: PersonService) {}
 

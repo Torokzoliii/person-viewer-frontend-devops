@@ -1,59 +1,26 @@
-# Frontend
+# Person viewer Frontend DevOps
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.8.
+Local development
+- Install: `npm ci`
+- Start dev server: `npm run start` (opens browser)
 
-## Development server
+Testing
+- Run tests once: `npm run test`
+- Watch mode: `npm run test:watch`
 
-To start a local development server, run:
+Lint & formatting
+- Lint: `npm run lint` (requires Angular ESLint packages)
+- Format: `npm run format`
 
-```bash
-ng serve
-```
+Docker build & run (local)
+- Build: `docker build -t person-viewer-frontend-devops:latest .`
+- Run: `docker run -p 4200:80 person-viewer-frontend-devops:latest`
+- The container serves the built SPA on port 80 (mapped to host 8080 above).
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+CI (GitHub Actions)
+- The provided workflow runs on pushes/PRs to `main` and executes: install → lint → test → build → docker build (tags with commit sha).
+- To push images to a registry, add authentication steps and set `push: true` in the workflow; provide registry credentials via GitHub secrets.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Notes
+- Dockerfile copies `dist/frontend`. If your Angular project has a different output path or project name, update the Dockerfile accordingly.
+- For ESLint you should add `@angular-eslint/*` packages and run the ESLint schematic or install the packages listed in `.eslintrc.json`.
