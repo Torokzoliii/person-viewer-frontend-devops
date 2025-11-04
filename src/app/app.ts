@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { PersonService } from './person.service';
-import {NgForOf} from '@angular/common';
-import {Person} from '../model/person';
+import { NgForOf } from '@angular/common';
+import { Person } from '../model/person';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +14,7 @@ import {Person} from '../model/person';
 export class App {
   persons: Person[] = [];
 
-  constructor(private personService: PersonService) {}
+  private readonly personService = inject(PersonService);
 
   loadPersons() {
     this.personService.getPersons().subscribe({
