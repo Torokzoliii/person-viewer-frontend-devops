@@ -6,10 +6,8 @@ import { Person } from '../model/person';
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
-  imports: [
-    NgForOf,
-  ],
-  styleUrl: './app.css'
+  imports: [NgForOf],
+  styleUrl: './app.css',
 })
 export class App {
   persons: Person[] = [];
@@ -22,7 +20,7 @@ export class App {
         console.log('Response data:', data);
         this.persons = data;
       },
-      error: (err) => console.error('Error fetching persons:', err)
+      error: (err) => console.error('Error fetching persons:', err),
     });
   }
 }

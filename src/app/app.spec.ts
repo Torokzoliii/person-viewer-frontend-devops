@@ -1,9 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { App } from './app';
-import {
-  HttpClientTestingModule,
-  HttpTestingController
-} from '@angular/common/http/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { CommonModule } from '@angular/common';
 
 describe('App', () => {
@@ -11,11 +8,7 @@ describe('App', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        App,
-        HttpClientTestingModule,
-        CommonModule
-      ],
+      imports: [App, HttpClientTestingModule, CommonModule],
     }).compileComponents();
 
     httpMock = TestBed.inject(HttpTestingController);
@@ -37,9 +30,7 @@ describe('App', () => {
 
     fixture.detectChanges();
 
-    const mockResponse = [
-      { id: 1, firstName: 'Kiss', lastName: 'János', age: 28 }
-    ];
+    const mockResponse = [{ id: 1, firstName: 'Kiss', lastName: 'János', age: 28 }];
 
     component.loadPersons();
 

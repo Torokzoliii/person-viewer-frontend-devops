@@ -1,8 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import {
-  HttpClientTestingModule,
-  HttpTestingController
-} from '@angular/common/http/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { PersonService } from './person.service';
 
 describe('PersonService', () => {
@@ -30,7 +27,7 @@ describe('PersonService', () => {
   it('should call API and get back the correct response', () => {
     const mockResponse = [
       { id: 1, firstName: 'Kiss', lastName: 'János', age: 28 },
-      { id: 2, firstName: 'Nagy', lastName: 'Anna', age: 34 }
+      { id: 2, firstName: 'Nagy', lastName: 'Anna', age: 34 },
     ];
 
     service.getPersons().subscribe((persons) => {
