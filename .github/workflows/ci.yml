@@ -26,13 +26,7 @@ jobs:
         run: npm run lint
 
       - name: Run tests
-        run: npm run test -- --browsers=ChromeHeadlessx --watch=false --code-coverage
-
-      - name: Upload coverage
-        uses: actions/upload-artifact@v4
-        with:
-          name: coverage-report
-          path: coverage/
+        run: npm run test -- --browsers=ChromeHeadlessx --watch=false
 
       - name: Build production
         run: npm run build

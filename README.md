@@ -1,5 +1,7 @@
 # Person viewer Frontend DevOps
 
+![Build](https://github.com/Torokzoliii/person-viewer-frontend-devops/actions/workflows/ci.yml/badge.svg)
+
 Local development
 - Install: `npm ci`
 - Start dev server: `npm run start` (opens browser)
